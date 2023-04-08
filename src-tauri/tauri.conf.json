@@ -16,6 +16,11 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "http": {
+        "all": true,
+        "request": true,
+        "scope": ["http://**", "https://**"]
       }
     },
     "bundle": {
@@ -41,7 +46,7 @@
         "fullscreen": false,
         "resizable": true,
         "title": "tool-3",
-        "width": 1000,
+        "width": 800,
         "height": 500
       }
     ]

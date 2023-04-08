@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     ElMain: typeof import('element-plus/es')['ElMain']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElText: typeof import('element-plus/es')['ElText']
+    Ip: typeof import('./src/components/Ip.vue')['default']
     Json: typeof import('./src/components/Json.vue')['default']
     TimeConvert: typeof import('./src/components/TimeConvert.vue')['default']
     Uuid: typeof import('./src/components/Uuid.vue')['default']

@@ -21,7 +21,7 @@ async function escape() {
     text.value = result;
 }
 
-function _escape(_, val) {
+function _escape(key: string, val: string) {
     if (typeof (val) != "string") return val;
     return val
         .replace(/[\\]/g, '\\\\')
@@ -49,7 +49,7 @@ async function clear() {
             <el-button @click="clear" :disabled="!text">清空</el-button>
         </el-header>
         <el-main>
-            <el-input class="text-area" v-model="text" type="textarea"/>
+            <el-input class="text-area" v-model="text" type="textarea" />
         </el-main>
     </el-container>
 </template>
