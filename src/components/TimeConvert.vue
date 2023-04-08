@@ -38,13 +38,20 @@ async function getNow() {
 </script>
 
 <template>
-    <el-row class="row">
+    <div class="row-now">
+        <el-button @click="getNow">当前时间</el-button>
+        <div>→</div>
+        <div>{{ now }}</div>
+        <div>→</div>
+        <div>{{ moment(new Date(now)).format("YYYY-MM-DD HH:mm:ss") }}</div>
+    </div>
+    <!-- <el-row class="row">
         <el-col :span="3"><el-button @click="getNow">当前时间</el-button></el-col>
         <el-col :span="1" class="arrow">→</el-col>
         <el-col :span="4" class="result">{{ now }}</el-col>
         <el-col :span="1" class="arrow">→</el-col>
         <el-col :span="6" class="result">{{ moment(new Date(now)).format("YYYY-MM-DD HH:mm:ss") }}</el-col>
-    </el-row>
+    </el-row> -->
 
     <el-row class="row">
         <el-col :span="6">
@@ -62,6 +69,19 @@ async function getNow() {
 </template>
 
 <style scoped>
+.row-now {
+    display: flex;
+    font-size: 18px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.row-now > div {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
 .arrow {
     display: flex;
     user-select: none;

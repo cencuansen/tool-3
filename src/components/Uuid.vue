@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { v4 as uuidv4 } from 'uuid';
-import { ElMessage } from "element-plus";
+import { ElNotification } from "element-plus";
 
 const id = ref("");
 let isUpper = false;
@@ -16,13 +16,13 @@ async function newUuid() {
 
 async function copy() {
     if (!id.value) {
-        ElMessage({ message: "id为空", type: "error" });
+        ElNotification({ message: "id为空", type: "error", duration: 1000, position: "bottom-right" });
         return;
     }
     navigator.clipboard.writeText(id.value).then(() => {
-        ElMessage({ message: "复制成功", type: "success" });
+        ElNotification({ message: "复制成功", type: "success", duration: 1000, position: "bottom-right" });
     }).catch((err) => {
-        ElMessage({ message: "复制失败", type: "error" });
+        ElNotification({ message: "复制失败", type: "error", duration: 1000, position: "bottom-right" });
     });
 }
 
@@ -38,20 +38,25 @@ async function lower() {
 </script>
 
 <template>
-    <el-row class="row">
-        <el-col :span="2" class="generate"><el-button @click="newUuid">生成</el-button></el-col>
-        <el-col :span="2" class="upper"><el-button @click="upper">大写</el-button></el-col>
-        <el-col :span="2" class="lower"><el-button @click="lower">小写</el-button></el-col>
-        <el-col :span="2" class="copy"><el-button @click="copy">复制</el-button></el-col>
-    </el-row>
-    <el-row class="row">
-        <el-col :span="10"><el-input v-model="id"></el-input></el-col>
-    </el-row>
+    <div class="button-group">
+        <el-button class="generate" @click="newUuid">生成</el-button>
+        <el-button class="upper" @click="upper" :disabled="!id">大写</el-button>
+        <el-button class="lower" @click="lower" :disabled="!id">小写</el-button>
+        <el-button class="copy" @click="copy" :disabled="!id">复制</el-button>
+    </div>
+
+    <div class="result">
+        <el-input v-model="id" clearable></el-input>
+    </div>
 </template>
 
 <style scoped>
-.row {
+.button-group {
     margin-bottom: 10px;
+}
+
+.result {
+    width: 350px;
 }
 
 .copy {

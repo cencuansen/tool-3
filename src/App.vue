@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Json from "./components/Json.vue";
 import UUID from "./components/Uuid.vue";
 import ChangeRate from "./components/ChangeRate.vue";
 import TimeConvert from "./components/TimeConvert.vue";
@@ -13,6 +14,7 @@ const menus = ref<{ name: string, icon: string, component: any }[]>([
   { name: "UUID", icon: "→", component: shallowRef(UUID) },
   { name: "时间戳", icon: "", component: shallowRef(TimeConvert) },
   { name: "变更幅度", icon: "", component: shallowRef(ChangeRate) },
+  { name: "JSON", icon: "", component: shallowRef(Json) },
 ]);
 
 let activeComponent = shallowRef(UUID);
