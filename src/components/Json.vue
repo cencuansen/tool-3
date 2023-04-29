@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 
-const text = ref('{"pjncjq":{"kexbusmcnwm":"IurbpHDAUix4zGrpUW","iulgp":true,"brmocovhqvh":"jJ_xdyXTMaFIZB1-kTzV"},"mipcckru":[["IgI0S4dGpdyP",-493815549.7200581,-188699608.2039967]],"znxhempxht":"SnC_0ZVxZCxT3l5"}');
+const text = ref('{"a":{},"b":[],"c":"ok"}');
 
 async function format() {
     const json = JSON.parse(text.value);
@@ -41,22 +41,21 @@ async function clear() {
 </script>
 
 <template>
-    <el-container>
-        <el-header>
-            <el-button @click="format" :disabled="!text">格式化</el-button>
-            <el-button @click="uglyfy" :disabled="!text">压缩</el-button>
-            <el-button @click="escape" :disabled="!text">转义</el-button>
-            <el-button @click="clear" :disabled="!text">清空</el-button>
-        </el-header>
-        <el-main>
-            <el-input class="text-area" v-model="text" type="textarea" />
-        </el-main>
-    </el-container>
+    <div class="row">
+        <el-button @click="format" :disabled="!text">格式化</el-button>
+        <el-button @click="uglyfy" :disabled="!text">压缩</el-button>
+        <el-button @click="escape" :disabled="!text">转义</el-button>
+        <el-button @click="clear" :disabled="!text">清空</el-button>
+    </div>
+    <div class="row">
+        <el-input class="text-area" v-model="text" type="textarea" autosize />
+    </div>
 </template>
 
 <style scoped>
-.el-container {
-    height: 100%;
+.row {
+    display: flex;
+    margin-bottom: 10px;
 }
 
 .text-area {
@@ -65,7 +64,6 @@ async function clear() {
 
 .text-area :deep(.el-textarea__inner) {
     height: 100%;
-    resize: none;
     font-family: "Consolas";
 }
 </style>

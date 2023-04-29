@@ -4,6 +4,9 @@ import Json from "./components/Json.vue";
 import UUID from "./components/Uuid.vue";
 import ChangeRate from "./components/ChangeRate.vue";
 import TimeConvert from "./components/TimeConvert.vue";
+import Encode from "./components/Encode.vue";
+import YAML from "./components/YAML.vue";
+import Hosts from "./components/Hosts.vue";
 import { invoke } from "@tauri-apps/api/tauri";
 import { ref, shallowRef } from "vue";
 
@@ -12,10 +15,13 @@ async function greet() {
 }
 
 const menus = ref<{ name: string, icon: string, component: any }[]>([
-  { name: "UUID", icon: "→", component: shallowRef(UUID) },
-  { name: "时间戳", icon: "", component: shallowRef(TimeConvert) },
-  { name: "变更幅度", icon: "", component: shallowRef(ChangeRate) },
   { name: "JSON", icon: "", component: shallowRef(Json) },
+  { name: "YAML", icon: "", component: shallowRef(YAML) },
+  { name: "编码", icon: "", component: shallowRef(Encode) },
+  { name: "时间戳", icon: "", component: shallowRef(TimeConvert) },
+  { name: "hosts", icon: "", component: shallowRef(Hosts) },
+  { name: "UUID", icon: "→", component: shallowRef(UUID) },
+  { name: "变更幅度", icon: "", component: shallowRef(ChangeRate) },
   // { name: "IP", icon: "", component: shallowRef(Ip) },
 ]);
 

@@ -15,14 +15,16 @@ declare module '@vue/runtime-core' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
-    ElHeader: typeof import('element-plus/es')['ElHeader']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElText: typeof import('element-plus/es')['ElText']
+    Encode: typeof import('./src/components/Encode.vue')['default']
+    Hosts: typeof import('./src/components/Hosts.vue')['default']
     Ip: typeof import('./src/components/Ip.vue')['default']
     Json: typeof import('./src/components/Json.vue')['default']
     TimeConvert: typeof import('./src/components/TimeConvert.vue')['default']
     Uuid: typeof import('./src/components/Uuid.vue')['default']
+    YAML: typeof import('./src/components/YAML.vue')['default']
   }
 }
