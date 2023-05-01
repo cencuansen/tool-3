@@ -5,7 +5,6 @@ import { el } from "element-plus/es/locale";
 
 const oldDdl = ref(`CREATE TABLE \`user\` (\`id\` int(11) NOT NULL AUTO_INCREMENT,\`name\` varchar(255) NOT NULL,\`age\` int(11) NOT NULL,PRIMARY KEY (\`id\`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`);
 const newDdl = ref(`CREATE TABLE \`user\` (\`id\` int(12) NOT NULL AUTO_INCREMENT,\`name\` varchar(255) NOT NULL,\`email\` varchar(255) DEFAULT NULL,PRIMARY KEY (\`id\`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`);
-const resultDdl = ref("");
 
 type DiffResult = {
     changed: boolean,
@@ -64,7 +63,8 @@ const tablesModify = ref<TableModify[]>([]);
 async function compare() {
     const oldTable = parseDDL(oldDdl.value);
     const newTable = parseDDL(newDdl.value);
-
+    tablesModify.value = [];
+    
     // 获取需要新增的字段
     if (newTable.tableName === oldTable.tableName) {
 
