@@ -64,7 +64,7 @@ async function compare() {
     const oldTable = parseDDL(oldDdl.value);
     const newTable = parseDDL(newDdl.value);
     tablesModify.value = [];
-    
+
     // 获取需要新增的字段
     if (newTable.tableName === oldTable.tableName) {
 
@@ -326,11 +326,16 @@ function getTableColumns(ddl: string): ColumnDefinition[] {
     return [];
 }
 
+async function clear() {
+    oldDdl.value = "";
+    newDdl.value = "";
+}
 </script>
 
 <template>
     <el-row>
-        <el-button @click="compare">对比</el-button>
+        <el-button @click="compare" :disabled="!oldDdl || !newDdl">对比</el-button>
+        <el-button @click="clear" :disabled="!oldDdl && !newDdl">清空</el-button>
     </el-row>
     <el-row :gutter="30">
         <el-col :span="12">

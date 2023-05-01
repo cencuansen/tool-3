@@ -52,14 +52,14 @@ async function clear() {
 
 <template>
     <div class="row button-group">
-        <el-button @click="base64Encode">base64 编码</el-button>
-        <el-button @click="base64Decode">base64 解码</el-button>
-        <el-button @click="encode">URI 编码</el-button>
-        <el-button @click="decode">URI 解码</el-button>
+        <el-button @click="base64Encode" :disabled="!inputValue">base64 编码</el-button>
+        <el-button @click="base64Decode" :disabled="!inputValue">base64 解码</el-button>
+        <el-button @click="encode" :disabled="!inputValue">URI 编码</el-button>
+        <el-button @click="decode" :disabled="!inputValue">URI 解码</el-button>
     </div>
     <div class="row button-group">
-        <el-button @click="htmlEscape">HTML 转义</el-button>
-        <el-button @click="escape">文本转义</el-button>
+        <el-button @click="htmlEscape" :disabled="!inputValue">HTML 转义</el-button>
+        <el-button @click="escape" :disabled="!inputValue">文本转义</el-button>
         <el-button @click="clear" :disabled="!inputValue && !outputValue">清空</el-button>
     </div>
     <div class="row">
