@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 
-const text = ref('{"a":{},"b":[],"c":"ok"}');
+const text = ref("");
 
 async function format() {
     const json = JSON.parse(text.value);

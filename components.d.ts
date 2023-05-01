@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     _Temp: typeof import('./src/components/_Temp.vue')['default']
     ChangeRate: typeof import('./src/components/ChangeRate.vue')['default']
+    DDLDiff: typeof import('./src/components/DDLDiff.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']

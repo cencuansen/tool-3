@@ -5,13 +5,6 @@ import { invoke } from '@tauri-apps/api';
 
 const oldHostsContent = ref("");
 const hostsContent = ref("");
-const disableWriteButton = computed(() => {
-    if (oldHostsContent.value === hostsContent.value) {
-        return false;
-    } else if (hostsContent.value.length === 0) {
-        return false;
-    }
-});
 
 async function read() {
     const content = await invoke('read_hosts_file');

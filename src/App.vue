@@ -7,6 +7,7 @@ import TimeConvert from "./components/TimeConvert.vue";
 import Encode from "./components/Encode.vue";
 import YAML from "./components/YAML.vue";
 import Hosts from "./components/Hosts.vue";
+import DDLDiff from "./components/DDLDiff.vue";
 import { invoke } from "@tauri-apps/api/tauri";
 import { ref, shallowRef } from "vue";
 
@@ -15,17 +16,18 @@ async function greet() {
 }
 
 const menus = ref<{ name: string, icon: string, component: any }[]>([
-  { name: "JSON", icon: "", component: shallowRef(Json) },
+  { name: "JSON", icon: "→", component: shallowRef(Json) },
   { name: "YAML", icon: "", component: shallowRef(YAML) },
   { name: "编码", icon: "", component: shallowRef(Encode) },
   { name: "时间戳", icon: "", component: shallowRef(TimeConvert) },
   { name: "hosts", icon: "", component: shallowRef(Hosts) },
-  { name: "UUID", icon: "→", component: shallowRef(UUID) },
-  { name: "变更幅度", icon: "", component: shallowRef(ChangeRate) },
+  { name: "DDL Diff", icon: "", component: shallowRef(DDLDiff) },
+  { name: "UUID", icon: "", component: shallowRef(UUID) },
+  { name: "增幅计算", icon: "", component: shallowRef(ChangeRate) },
   // { name: "IP", icon: "", component: shallowRef(Ip) },
 ]);
 
-let activeComponent = shallowRef(UUID);
+let activeComponent = shallowRef(Json);
 
 async function switchMenu(menu: { name: string, icon: string, }) {
   const old = menus.value.find(x => x.icon === "→");
