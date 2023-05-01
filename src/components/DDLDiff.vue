@@ -64,8 +64,6 @@ const tablesModify = ref<TableModify[]>([]);
 async function compare() {
     const oldTable = parseDDL(oldDdl.value);
     const newTable = parseDDL(newDdl.value);
-    // console.log(oldTable);
-    // console.log(newTable);
 
     // 获取需要新增的字段
     if (newTable.tableName === oldTable.tableName) {
@@ -104,7 +102,6 @@ async function compare() {
         }
 
         // 待更新列
-        // TODO
         const updateCols = [...oldFields].filter(x => newFields.has(x));
         if (updateCols.length > 0) {
             const updateColumnAndDdl = updateCols.map(columnName => {
