@@ -116,6 +116,12 @@
  .s-bgi{}/*背景图片backgroundimage*/
  .s-bgp{}/*背景定位backgroundposition*/
  .s-bdc{}/*边框颜色bordercolor*/
+
+ .dark {
+    background-color: #222;
+    color: #eee;
+ }
+
  /*
   *状态
   */
