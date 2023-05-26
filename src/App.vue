@@ -8,15 +8,15 @@ import Encode from "./components/Encode.vue";
 import YAML from "./components/YAML.vue";
 import Hosts from "./components/Hosts.vue";
 import DDLDiff from "./components/DDLDiff.vue";
-import { invoke } from "@tauri-apps/api/tauri";
 
+import { invoke } from "@tauri-apps/api/tauri";
 import { ref, shallowRef } from "vue";
 
 async function greet() {
   await invoke("greet", { name: "-.-" });
 }
 
-const menus = ref<{ name: string, icon: string, component: any }[]>([
+const menus = ref<{ name: string; icon: string; component: any }[]>([
   { name: "JSON", icon: "→", component: shallowRef(Json) },
   { name: "YAML", icon: "", component: shallowRef(YAML) },
   { name: "编码", icon: "", component: shallowRef(Encode) },
@@ -30,14 +30,13 @@ const menus = ref<{ name: string, icon: string, component: any }[]>([
 
 let activeComponent = shallowRef(Json);
 
-async function switchMenu(menu: { name: string, icon: string, }) {
-  const old = menus.value.find(x => x.icon === "→");
-  const target = menus.value.find(x => x.name === menu.name);
+async function switchMenu(menu: { name: string; icon: string }) {
+  const old = menus.value.find((x) => x.icon === "→");
+  const target = menus.value.find((x) => x.name === menu.name);
   old!.icon = "";
   target!.icon = "→";
   activeComponent.value = target?.component;
 }
-
 </script>
 
 <template>

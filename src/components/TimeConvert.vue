@@ -76,7 +76,7 @@ async function getNow() {
     margin-bottom: 10px;
 }
 
-.row-now > div {
+.row-now>div {
     display: flex;
     align-items: center;
     padding-left: 10px;

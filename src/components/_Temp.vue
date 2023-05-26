@@ -2,13 +2,8 @@
 import { ref, computed } from "vue";
 import { ElMessage } from "element-plus";
 
-
 </script>
 
-<template>
+<template></template>
 
-</template>
-
-<style scoped>
-
-</style>
+<style scoped></style>
