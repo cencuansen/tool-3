@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { ElMessage } from "element-plus";
-import { el } from "element-plus/es/locale";
+import { ref } from "vue";
 
 const oldDdl = ref(`CREATE TABLE \`user\` (\`id\` int(11) NOT NULL AUTO_INCREMENT,\`name\` varchar(255) NOT NULL,\`age\` int(11) NOT NULL,PRIMARY KEY (\`id\`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`);
 const newDdl = ref(`CREATE TABLE \`user\` (\`id\` int(12) NOT NULL AUTO_INCREMENT,\`name\` varchar(255) NOT NULL,\`email\` varchar(255) DEFAULT NULL,PRIMARY KEY (\`id\`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`);
@@ -329,6 +327,7 @@ function getTableColumns(ddl: string): ColumnDefinition[] {
 async function clear() {
     oldDdl.value = "";
     newDdl.value = "";
+    tablesModify.value = [];
 }
 </script>
 

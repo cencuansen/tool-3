@@ -14,6 +14,7 @@ fn greet(name: &str) -> String {
 
 // 读 hosts
 #[tauri::command]
+#[cfg(target_os = "windows")]
 async fn read_hosts_file() -> String {
     let hosts = fs::read_to_string("C:\\Windows\\System32\\drivers\\etc\\hosts").unwrap();
     hosts
@@ -21,6 +22,7 @@ async fn read_hosts_file() -> String {
 
 // 写 hosts
 #[tauri::command]
+#[cfg(target_os = "windows")]
 async fn write_hosts_file(content: String) {
     fs::write("C:\\Windows\\System32\\drivers\\etc\\hosts", content).unwrap();
 }

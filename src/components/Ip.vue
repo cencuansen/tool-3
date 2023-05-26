@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { ElMessage } from "element-plus";
+import { ref } from "vue";
 import { http } from "@tauri-apps/api";
 
 

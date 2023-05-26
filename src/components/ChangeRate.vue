@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { ElMessage } from "element-plus";
 
 const num1 = ref(1);
 const num2 = ref(1);
