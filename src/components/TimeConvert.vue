@@ -45,26 +45,19 @@ async function getNow() {
         <div>→</div>
         <div>{{ moment(new Date(now)).format("YYYY-MM-DD HH:mm:ss") }}</div>
     </div>
-    <!-- <el-row class="row">
-        <el-col :span="3"><el-button @click="getNow">当前时间</el-button></el-col>
-        <el-col :span="1" class="arrow">→</el-col>
-        <el-col :span="4" class="result">{{ now }}</el-col>
-        <el-col :span="1" class="arrow">→</el-col>
-        <el-col :span="6" class="result">{{ moment(new Date(now)).format("YYYY-MM-DD HH:mm:ss") }}</el-col>
-    </el-row> -->
 
     <el-row class="row">
         <el-col :span="6">
             <el-input v-model="timeStampInput" placeholder="数值" type="number"></el-input></el-col>
         <el-col :span="1" class="arrow">→</el-col>
-        <el-col :span="6" class="result">{{ dateTimeOutput }}</el-col>
+        <el-col :span="10" class="result">{{ dateTimeOutput }}</el-col>
     </el-row>
 
     <el-row class="row">
         <el-col :span="6">
             <el-input v-model="dateTimeInput" placeholder="日期" type="datetime"></el-input></el-col>
         <el-col :span="1" class="arrow">→</el-col>
-        <el-col :span="6" class="result">{{ timeStampOutput }}</el-col>
+        <el-col :span="10" class="result">{{ timeStampOutput }}</el-col>
     </el-row>
 </template>
 

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-const oldDdl = ref(`CREATE TABLE \`user\` (\`id\` int(11) NOT NULL AUTO_INCREMENT,\`name\` varchar(255) NOT NULL,\`age\` int(11) NOT NULL,PRIMARY KEY (\`id\`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`);
-const newDdl = ref(`CREATE TABLE \`user\` (\`id\` int(12) NOT NULL AUTO_INCREMENT,\`name\` varchar(255) NOT NULL,\`email\` varchar(255) DEFAULT NULL,PRIMARY KEY (\`id\`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`);
+const oldDdl = ref(``);
+const newDdl = ref(``);
 
 type DiffResult = {
     changed: boolean,
@@ -434,5 +434,9 @@ async function clear() {
 
 .readOnlyLabel {
     user-select: none;
+}
+
+::v-deep(textarea) {
+  height: 300px !important;
 }
 </style>

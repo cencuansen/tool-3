@@ -9,22 +9,22 @@ import YAML from "./components/YAML.vue";
 import Hosts from "./components/Hosts.vue";
 import DDLDiff from "./components/DDLDiff.vue";
 
-import { invoke } from "@tauri-apps/api/tauri";
-import { ref, shallowRef } from "vue";
+import {invoke} from "@tauri-apps/api/tauri";
+import {ref, shallowRef} from "vue";
 
 async function greet() {
-  await invoke("greet", { name: "-.-" });
+  await invoke("greet", {name: "-.-"});
 }
 
 const menus = ref<{ name: string; icon: string; component: any }[]>([
-  { name: "JSON", icon: "→", component: shallowRef(Json) },
-  { name: "YAML", icon: "", component: shallowRef(YAML) },
-  { name: "编码", icon: "", component: shallowRef(Encode) },
-  { name: "时间戳", icon: "", component: shallowRef(TimeConvert) },
-  { name: "hosts", icon: "", component: shallowRef(Hosts) },
-  { name: "DDL Diff", icon: "", component: shallowRef(DDLDiff) },
-  { name: "UUID", icon: "", component: shallowRef(UUID) },
-  { name: "增幅计算", icon: "", component: shallowRef(ChangeRate) },
+  {name: "JSON", icon: "→", component: shallowRef(Json)},
+  {name: "YAML", icon: "", component: shallowRef(YAML)},
+  {name: "编码", icon: "", component: shallowRef(Encode)},
+  {name: "时间戳", icon: "", component: shallowRef(TimeConvert)},
+  {name: "hosts", icon: "", component: shallowRef(Hosts)},
+  {name: "DDL Diff", icon: "", component: shallowRef(DDLDiff)},
+  {name: "UUID", icon: "", component: shallowRef(UUID)},
+  {name: "增幅计算", icon: "", component: shallowRef(ChangeRate)},
   // { name: "IP", icon: "", component: shallowRef(Ip) },
 ]);
 
@@ -72,6 +72,11 @@ async function switchMenu(menu: { name: string; icon: string }) {
   user-select: none;
   padding: 10px 10px;
   border-right: 1px solid #aaa;
+}
+
+#main-main {
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-item {
